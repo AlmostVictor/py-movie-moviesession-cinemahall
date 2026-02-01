@@ -5,7 +5,7 @@ class Genre(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
     def __str__(self) -> str:
-        return str(self.name)
+        return self.name
 
 
 class Actor(models.Model):
@@ -23,7 +23,7 @@ class Movie(models.Model):
     genres = models.ManyToManyField(Genre, related_name="movies")
 
     def __str__(self) -> str:
-        return str(self.title)
+        return self.title
 
 
 class CinemaHall(models.Model):
@@ -32,7 +32,7 @@ class CinemaHall(models.Model):
     seats_in_row = models.IntegerField()
 
     def __str__(self) -> str:
-        return str(self.name)
+        return self.name
 
     @property
     def capacity(self) -> int:
